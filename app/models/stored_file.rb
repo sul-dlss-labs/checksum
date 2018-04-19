@@ -22,5 +22,9 @@ class StoredFile
     ActiveStorage::Blob.service.send(:path_for, key)
   end
 
+  def stored_md5
+    @blob.checksum
+  end
+
   delegate :key, to: :@blob
 end

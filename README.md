@@ -1,24 +1,12 @@
-# README
+# Upload
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Upload a file by POSTing form data to the `/files` endpoint with the file in
+the `file` parameter like this:
 
-Things you may want to cover:
+```
+curl -Ffile=@README.md localhost:3000/files
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The file is held in the local file system adapter for ActiveStorage.
+We use the `StoredFile` model to wrap the ActiveStorage blob. ActiveStorage
+keeps some file metadata in the database.

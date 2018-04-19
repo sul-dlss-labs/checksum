@@ -10,6 +10,6 @@ class FilesController < ApplicationController
   def create
     attachable = params[:file]
     file = StoredFile.create_from_upload(attachable)
-    render json: { id: file.key }, status: :created
+    render json: { id: file.key, md5: file.stored_md5 }, status: :created
   end
 end
