@@ -10,7 +10,7 @@ class StoredFile
   end
 
   def self.find(key)
-    new.with_blob(ActiveStorage::Blob.find_by(key: key))
+    new.with_blob(ActiveStorage::Blob.find_by!(key: key))
   end
 
   def with_blob(blob)
